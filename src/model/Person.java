@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Person {
     private final Integer id;
@@ -28,12 +29,12 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "\n" +
-                "\tid=" + id + "\n" +
-                "\tname=" + name + "\n" +
-                "\tgender=" + gender + "\n" +
+        return "User {" + "\n" +
+                "\tID = " + id + "\n" +
+                "\tName = " + name + "\n" +
+                "\tGender = " + gender + "\n" +
                 '}';
-    }
-}
+    }}
+
 
 

@@ -1,9 +1,7 @@
 import model.Gender;
 import model.Person;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -51,7 +49,21 @@ public class Main {
         }
     }
 
+    private static void findById(int id){
+        boolean found = false;
+        for (int i = 0; i < people.length; i++) {
+            if (people[i].getId().equals(id)) {
+                System.out.println(STR."User \{id} - \{people[i].getName()} - \{people[i].getGender()}");
+                found = true;
+            }
+        }
+    }
+
     private static void displayAllPerson() {
+        if (people.length == 0) {
+            System.out.println("No users Please add user first");
+            return;
+        }
         System.out.println(Arrays.toString(people));
     }
 
@@ -61,10 +73,10 @@ public class Main {
                 2. Create a new User
                 3. Delete a User
                 4. Update a User
-                5. Exits
+                5. Find by ID
+                6. Exits
                 """);
     }
-
     public static void main(String[] args) {
 
         while (true) {
@@ -105,6 +117,12 @@ public class Main {
                     updatePerson(id, name, Gender.valueOf(gender));
                 }
                 case 5 -> {
+                    System.out.print("[+] Insert User ID : ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+                    findById(id);
+                }
+                case 6 -> {
                     System.out.println("Exiting...");
                     System.exit(0);
                 }
